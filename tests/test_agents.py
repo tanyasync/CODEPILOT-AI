@@ -1,12 +1,3 @@
-"""
-tests/test_agents.py
----------------------
-Basic tests that DON'T require a Groq API key — they only test the
-deterministic parts (language detection, AST checking, prompt loading).
-
-Run with:  pytest tests/
-"""
-
 import os
 import sys
 

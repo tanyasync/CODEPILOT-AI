@@ -1,10 +1,3 @@
-"""
-app.py
-------
-Streamlit dashboard — the "User Dashboard" node in the synopsis architecture.
-Run with:  streamlit run app.py
-"""
-
 import os
 import streamlit as st
 from graph import build_graph
