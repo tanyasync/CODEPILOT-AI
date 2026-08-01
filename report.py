@@ -1,10 +1,3 @@
-"""
-report.py
----------
-Aggregates all agent outputs from the final graph state into a single
-Markdown report, and saves it to outputs/generated_reports/.
-"""
-
 import os
 from datetime import datetime
 

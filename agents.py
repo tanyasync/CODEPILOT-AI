@@ -1,18 +1,3 @@
-"""
-agents.py
----------
-All 8 LLM-powered specialist agents from the CodePilot AI synopsis:
-Planning, Code Review, Bug Detection, Complexity, Security, Optimizer,
-Documentation, Explanation.
-
-(Language detection is the 9th agent in the synopsis, but it is handled
-deterministically in analyzers.py rather than via an LLM call — cheaper,
-faster, and works for any language.)
-
-Each agent is a thin function: load its prompt -> call Groq -> return text.
-graph.py wires these together into the LangGraph workflow.
-"""
-
 import os
 from llm import call_groq
 

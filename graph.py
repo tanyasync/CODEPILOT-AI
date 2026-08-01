@@ -1,18 +1,3 @@
-"""
-graph.py
---------
-Builds the LangGraph DAG described in the synopsis:
-
-  User Input -> Planning Agent -> Language Agent(analyzer) -> Code Review,
-  Bug Detection -> Complexity, Security -> Optimizer -> Documentation ->
-  Explanation -> Report
-
-For simplicity and reliability in a student project, the graph runs as a
-single deterministic chain (LangGraph's parallel-branch state merging needs
-extra reducer config which adds complexity without much real benefit here).
-Swap add_edge calls if you want true parallel fan-out later.
-"""
-
 from typing import TypedDict
 from langgraph.graph import StateGraph, END
 
@@ -43,8 +28,6 @@ class CodeState(TypedDict, total=False):
     documentation: str
     explanation: str
 
-
-# --- Node functions ---------------------------------------------------------
 
 def node_intake(state: CodeState) -> CodeState:
     analysis = analyze_code(state["filename"], state["code"])
@@ -92,8 +75,6 @@ def node_explanation(state: CodeState) -> CodeState:
     state["explanation"] = explanation_agent(state["code"], state["language"])
     return state
 
-
-# --- Graph builder -----------------------------------------------------------
 
 def build_graph():
     graph = StateGraph(CodeState)

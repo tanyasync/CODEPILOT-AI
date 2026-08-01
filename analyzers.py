@@ -1,20 +1,9 @@
-"""
-analyzers.py
-------------
-Non-LLM, deterministic checks. These run BEFORE the LLM agents so that:
-1. Language detection works for ANY file extension (not a fixed list).
-2. Python files get real static-analysis data (AST validity, cyclomatic
-   complexity via Radon, security findings via Bandit) that can be handed
-   to the LLM agents as extra grounding context.
-"""
-
 import ast
 import json
 import os
 import subprocess
 import tempfile
 
-# Extend this map any time — it's just a hint, not a hard limit.
 LANGUAGE_EXTENSIONS = {
     ".py": "Python",
     ".java": "Java",
